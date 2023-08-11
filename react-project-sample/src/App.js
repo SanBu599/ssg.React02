@@ -5,6 +5,10 @@ import './main.css';  // footer를 하단에 고정
 import Home from './component/Home';
 import Bbslist from './bbs/Bbslist';
 import Bbswrite from './bbs/Bbswrite';
+import Bbsdetail from './bbs/Bbsdetail';
+import Login from './member/Login';
+import Regi from './member/Regi';
+import Bbsupdate from './bbs/Bbsupdate';
 
 function App() {
   return (
@@ -48,7 +52,10 @@ function App() {
 
                 <Route path='/bbslist' element={<Bbslist /> } />
                 <Route path='/bbswrite' element={<Bbswrite />} />
-
+                <Route path='/bbsdetail/:seq' element={<Bbsdetail />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/regi' element={<Regi/>} />
+                <Route path='/bbsupdate/:seq' element={<Bbsupdate />} />
               </Routes>
 
             </div>
