@@ -6,16 +6,18 @@ import Home from './component/Home';
 import Bbslist from './bbs/Bbslist';
 import Bbswrite from './bbs/Bbswrite';
 import Bbsdetail from './bbs/Bbsdetail';
-import Login from './member/Login';
-import Regi from './member/Regi';
+import Login from './member/Login.js';
+
+import openholy from './asset/open-holy.jpg';
 import Bbsupdate from './bbs/Bbsupdate';
+import Bbsanswer from './bbs/Bbsanswer';
 
 function App() {
   return (
     <div>
       <header className='py-4'>
         <div className='container text-center'>
-          <img alt='no' src='open-holy.jpg' width='960' height='150' />
+          <img alt='no' src={ openholy } width='960' height='150' />
         </div>
       </header>
 
@@ -53,9 +55,11 @@ function App() {
                 <Route path='/bbslist' element={<Bbslist /> } />
                 <Route path='/bbswrite' element={<Bbswrite />} />
                 <Route path='/bbsdetail/:seq' element={<Bbsdetail />} />
+                <Route path="/bbsupdate/:seq" exact element={<Bbsupdate />}></Route>
+                <Route path="/bbsanswer/:seq" exact element={<Bbsanswer />}></Route>
+
                 <Route path='/login' element={<Login />} />
-                <Route path='/regi' element={<Regi/>} />
-                <Route path='/bbsupdate/:seq' element={<Bbsupdate />} />
+
               </Routes>
 
             </div>

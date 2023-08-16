@@ -1,4 +1,4 @@
-import react, { useState } from 'react'
+import { useState } from 'react'
 
 
 //111111111111111111111111111111
@@ -169,29 +169,33 @@ function App(){
 
     const [checkboxVal,setCheckboxVal] = useState("id저장")
   
-  
-    function btnClick(){
-      
-    }  
 
     function chekcboxChange(r){
-      setCheckboxVal(r.target.value);
+      setCheckboxVal(r.target.checked);
     }
-
+    function btnClick(){
+      if(checkboxVal==="true"){
+        setCheckboxVal("false");
+        console.log(setCheckboxVal);
+      }else{
+        setCheckboxVal("true")
+      }
+    }
 
     return(
       <div>
-        <input type='checkbox' checked={checkboxVal}/> id 저장
-        <button onClick={btnClick()}>확인</button>
+        <p>{checkboxVal}</p>
+        <input type='checkbox' onClick={()=>btnClick()} checked={chekcboxChange} value="checkboxVal"/> id 저장
+        
       </div>
     );
   }
 
   return(
 
-    <>
-      {InputCheck}
-    </>
+    <div>
+      <InputCheck/>
+    </div>
 
   )
 }
