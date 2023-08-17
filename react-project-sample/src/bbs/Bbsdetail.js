@@ -25,6 +25,19 @@ function Bbsdetail(){
             })
     }
 
+    function deleteBbs(){
+        axios.get("http://localhost:3000/bbsdelete",{params : {"seq":params.seq}})
+                                    .then(function(resp){
+                                        console.log(resp.data);
+                                        navigate('./bbslist');
+                                    })
+                                    .catch(function(err){
+                                        alert(err);
+                                    })
+
+                                    
+    }
+
     const updateBbs = () => {
         navigate("/bbsupdate/" + bbs.seq);
     }
@@ -86,7 +99,7 @@ function Bbsdetail(){
             </tr>
             <tr>
                 <th>조회수</th>
-                <td>{bbs.wdate}</td>
+                <td>{bbs.readcount}</td>
             </tr>
             <tr>                
                 <td colSpan={2} style={{ fontSize:'22px', fontWeight:"bold", lineHeight:"28px" }}>{bbs.title}</td>
@@ -100,8 +113,8 @@ function Bbsdetail(){
             </tbody>
             </table>
 
-            <button type="button" onClick={answerBbs} className="btn btn-primary">답글작성</button>
-
+            <button type="button" onClick={answerBbs} className="btn btn-primary">답글작성</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button onClick={deleteBbs} className="btn btn-primary">삭제</button>&nbsp;&nbsp;&nbsp;
             <UpdateButtonLoad />
 
         </div>
